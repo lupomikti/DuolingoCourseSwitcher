@@ -24,7 +24,7 @@ document.head.appendChild($('<style type="text/css">'+
     '</style>').get(0));
 
 // Variables
-var courses = '{"en":["es","fr","de","it","pt"],"es":["en","fr","pt","de"],"pt":["en","es"],"fr":["en","es"],"it":["en"],"de":["en","fr"],"hu":["en"],"ru":["en","de"],"tr":["en"],"nl-NL":["en"],"pl":["en"],"ro":["en"],"ja":["en"],"ar":["en"],"zh-CN":["en"],"el":["en"],"id":["en"],"hi":["en"]}';
+var courses = '{"en":["es","fr","de","it","pt"],"es":["en","fr","pt","de"],"pt":["en","es"],"fr":["en","es"],"it":["en"],"de":["en","fr"],"hu":["en"],"ru":["en","de"],"tr":["en"],"nl-NL":["en"],"pl":["en"],"ro":["en"],"ja":["en"],"ar":["en"],"zh-CN":["en"],"el":["en"],"id":["en"],"hi":["en"],"ko":["en"]}';
 
 var languages = '{"ar":"Arabic","bn":"Bengali","zh-CN":"Chinese (Simpli)","zh-TW":"Chinese (Tradit)","cs":"Czech","nl-NL":"Dutch (Nether)","en":"English","eo":"Esperanto","fr":"French","de":"German","el":"Greek","he":"Hebrew","hi":"Hindi","hu":"Hungarian","id":"Indonesian","ga":"Irish","it":"Italian","ja":"Japanese","tlh":"Klingon","ko":"Korean","pl":"Polish","pt":"Portuguese","pa":"Punjabi","ro":"Romanian","ru":"Russian","es":"Spanish","sv":"Swedish","th":"Thai","tr":"Turkish","uk":"Ukrainian","vi":"Vietnamese"}';
 
