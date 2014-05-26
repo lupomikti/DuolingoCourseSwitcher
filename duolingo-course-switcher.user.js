@@ -2,14 +2,11 @@
 // @name        DuoLingo Course Switcher
 // @namespace   http://moviemap.me/duoinc
 // @include     *
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @downloadURL https://github.com/mofman/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/mofman/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @version     0.5
 // @grant       none
 // ==/UserScript==
-
-this.$ = this.jQuery = jQuery.noConflict(true);
 
 // CSS.
 document.head.appendChild($('<style type="text/css">'+
@@ -48,8 +45,8 @@ function switchCourse(from, to) {
 
 $(document).ready(function() {
 
-    var courseObject = jQuery.parseJSON(courses);
-    var languagesObject = jQuery.parseJSON(languages);
+    var courseObject = $.parseJSON(courses);
+    var languagesObject = $.parseJSON(languages);
 
     var languagesList = $('.languages');
 
