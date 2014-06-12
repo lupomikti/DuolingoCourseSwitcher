@@ -4,7 +4,7 @@
 // @include     *
 // @downloadURL https://github.com/mofman/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/mofman/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.5
+// @version     0.5.2
 // @grant       none
 // ==/UserScript==
 
