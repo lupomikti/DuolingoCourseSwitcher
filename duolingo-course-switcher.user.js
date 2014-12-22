@@ -50,7 +50,7 @@ $(document).ready(function() {
     var courses = updateCourses(A);
 
     if(Object.keys(courses).length > 1) {
-        var languagesNames = duo.language_names_ui[A.ui_language];
+        var languageNames = duo.language_names_ui[A.ui_language];
 
         var activeLanguages = $('.languages > .language-choice');
         var divider = $('.languages > .divider');
@@ -59,7 +59,7 @@ $(document).ready(function() {
         $('.languages > .head > h6').text(header1[A.ui_language] || 'From');
 
         $.each(courses, function( from, value ) {
-            fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languagesNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"><li class="head"><h6>'+header2+'</h6></li></ul></li>';
+            fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languageNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"><li class="head"><h6>'+header2+'</h6></li></ul></li>';
 
             fromCourse = $(fromCourse).insertBefore(divider);
             
@@ -69,7 +69,7 @@ $(document).ready(function() {
             } else {
                 value.sort();
                 $.each(value, function( fromx, to ) {
-                    sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
+                    sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
 
                     $(sub).appendTo('.'+from);
                 });
