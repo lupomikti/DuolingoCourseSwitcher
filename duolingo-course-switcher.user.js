@@ -46,30 +46,33 @@ $(document).ready(function() {
 
     var A = duo.user.attributes;
     var courses = updateCourses(A);
-    var languagesNames = duo.language_names_ui[A.ui_language];
 
-    var activeLanguages = $('.languages > .language-choice');
-    var divider = $('.languages > .divider');
+    if(Object.keys(courses).length > 1) {
+        var languagesNames = duo.language_names_ui[A.ui_language];
 
-    $.each(courses, function( from, value ) {
-        fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languagesNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"></ul></li>';
+        var activeLanguages = $('.languages > .language-choice');
+        var divider = $('.languages > .divider');
 
-        fromCourse = $(fromCourse).insertBefore(divider);
+        $.each(courses, function( from, value ) {
+            fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languagesNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"></ul></li>';
+
+            fromCourse = $(fromCourse).insertBefore(divider);
+            
+            if(from == A.ui_language) {
+                activeLanguages.appendTo('.'+from);
+                fromCourse.addClass('active');
+            } else {
+                value.sort();
+                $.each(value, function( fromx, to ) {
+                    sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
+
+                    $(sub).appendTo('.'+from);
+                });
+            }
+        });
         
-        if(from == A.ui_language) {
-            activeLanguages.appendTo('.'+from);
-            fromCourse.addClass('active');
-        } else {
-            value.sort();
-            $.each(value, function( fromx, to ) {
-                sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
-
-                $(sub).appendTo('.'+from);
-            });
-        }
-    });
-    
-    sortList();
+        sortList();
+    }
 });
 
 $(document).on('click', '.language-choice', function(){
