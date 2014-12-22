@@ -35,7 +35,15 @@ function updateCourses(A) {
     return courses;
 }
 
+function sortList() {
+  var listitems = $('.languages > .language-choice').get();
+  listitems.sort(function(a, b) { return $(a).text().localeCompare($(b).text()); });
+  $.each(listitems, function(idx, itm) { $(itm).insertBefore( $('.languages > .divider') ); });
+}
+
 $(document).ready(function() {
+    sortList();
+
     var A = duo.user.attributes;
     var courses = updateCourses(A);
     var languagesNames = duo.language_names_ui[A.ui_language];
@@ -52,6 +60,7 @@ $(document).ready(function() {
             activeLanguages.appendTo('.'+from);
             fromCourse.addClass('active');
         } else {
+            value.sort();
             $.each(value, function( fromx, to ) {
                 sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
 
@@ -59,6 +68,8 @@ $(document).ready(function() {
             });
         }
     });
+    
+    sortList();
 });
 
 $(document).on('click', '.language-choice', function(){
