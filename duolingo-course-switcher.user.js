@@ -16,18 +16,14 @@ document.head.appendChild($('<style type="text/css">'+
 var header1 = JSON.parse('{"dn": "van", "sv": "fr\\u00e5n", "fr": "de", "hu": "-b\\u00f3l", "eo": "de", "tr": "-den", "es": "desde", "ro": "din", "ja": "\\u304b\\u3089", "vi": "t\\u1eeb", "it": "da", "he": "\\u05de", "el": "\\u03b1\\u03c0\\u03cc", "ru": "\\u0441", "ar": "\\u0645\\u0646", "en": "from", "ga": "\\u00f3", "cs": "od", "pt": "de", "de": "von", "zs": "\\u5f9e", "pl": "z"}');
 
 function switchCourse(from, to) {
-    $.ajax({
-        url: 'https://www.duolingo.com/api/1/me/switch_language',
-        type: 'post',
-        data: {
+    $.post('/api/1/me/switch_language', {
             from_language: from,
             learning_language: to
         },
-        dataType: 'json',
-        success: function (data) {
+        function (data) {
             window.location = 'https://www.duolingo.com/';
         }
-    });
+    );
 }
 
 function updateCourses(A) {
