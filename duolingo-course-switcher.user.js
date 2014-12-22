@@ -36,29 +36,29 @@ function updateCourses(A) {
 }
 
 $(document).ready(function() {
-
     var A = duo.user.attributes;
     var courses = updateCourses(A);
     var languagesNames = duo.language_names_ui[A.ui_language];
 
+    var activeLanguages = $('.languages > .language-choice');
     var divider = $('.languages > .divider');
 
-    $('.languages > .language-choice').remove();
-
     $.each(courses, function( from, value ) {
-
         fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languagesNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"></ul></li>';
 
-        $(fromCourse).insertBefore(divider);
+        fromCourse = $(fromCourse).insertBefore(divider);
+        
+        if(from == A.ui_language) {
+            activeLanguages.appendTo('.'+from);
+            fromCourse.addClass('active');
+        } else {
+            $.each(value, function( fromx, to ) {
+                sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
 
-        $.each(value, function( fromx, to ) {
-            sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
-
-            $(sub).appendTo('.'+from);
-        });
-
+                $(sub).appendTo('.'+from);
+            });
+        }
     });
-
 });
 
 $(document).on('click', '.language-choice', function(){
