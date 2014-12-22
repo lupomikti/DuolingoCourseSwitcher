@@ -2,9 +2,9 @@
 // @name        DuoLingo Course Switcher
 // @namespace   http://moviemap.me/duoinc
 // @include     https://www.duolingo.com/*
-// @downloadURL https://github.com/mofman/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @updateURL   https://github.com/mofman/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.5.2
+// @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
+// @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
+// @version     0.6.0
 // @grant       none
 // ==/UserScript==
 
