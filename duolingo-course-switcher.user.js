@@ -67,7 +67,7 @@ $(document).ready(function() {
                 activeLanguages.appendTo('.'+from);
                 fromCourse.addClass('active');
             } else {
-                value.sort();
+                value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
                 $.each(value, function( fromx, to ) {
                     sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
 
