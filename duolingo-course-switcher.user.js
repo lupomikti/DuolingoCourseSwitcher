@@ -12,8 +12,6 @@ document.head.appendChild($('<style type="text/css">'+
     '.language-sub-courses {position:absolute; top:0px !important; left:200px !important; color:#000; background-color: #fff; width: 150px; min-height: 50px; display: none !important;}'+
     '</style>').get(0));
 
-var courses = '{"en":["es","fr","de","it","pt"],"es":["en","fr","pt","de"],"pt":["en","es"],"fr":["en","es"],"it":["en"],"de":["en","fr"],"hu":["en"],"ru":["en","de"],"tr":["en"],"dn":["en"],"pl":["en"],"ro":["en"],"ja":["en"],"ar":["en"],"zs":["en"],"el":["en"],"id":["en"],"hi":["en"],"ko":["en"],"vi":["en"]}';
-
 function switchCourse(from, to) {
     $.ajax({
         url: 'https://www.duolingo.com/api/1/me/switch_language',
@@ -29,21 +27,28 @@ function switchCourse(from, to) {
     });
 }
 
+function updateCourses(A) {
+    var courses = JSON.parse(localStorage.getItem('courses')) || {};
+    courses[A.ui_language] = A.languages.filter(function(lang){ return lang['learning']; }).map(function(lang){ return lang['language']; });
+    localStorage.setItem('courses', JSON.stringify(courses));
+    return courses;
+}
+
 $(document).ready(function() {
 
     var A = duo.user.attributes;
-    var courseObject = $.parseJSON(courses);
+    var courses = updateCourses(A);
     var languagesNames = duo.language_names_ui[A.ui_language];
 
-    var languagesList = $('.languages');
+    var divider = $('.languages > .divider');
 
-    languagesList.empty();
+    $('.languages > .language-choice').remove();
 
-    $.each(courseObject, function( from, value ) {
+    $.each(courses, function( from, value ) {
 
         fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languagesNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"></ul></li>';
 
-        $(fromCourse).appendTo(languagesList);
+        $(fromCourse).insertBefore(divider);
 
         $.each(value, function( fromx, to ) {
             sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languagesNames[to]+'</span></a></li>';
