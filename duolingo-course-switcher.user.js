@@ -9,6 +9,7 @@
 // ==/UserScript==
 
 document.head.appendChild($('<style type="text/css">'+
+    '.choice span:nth-child(2) {text-transform: capitalize;}'+
     '.language-sub-courses {position:absolute; top:0px !important; left:200px !important; color:#000; background-color: #fff; width: 150px; min-height: 50px; display: none !important;}'+
     '</style>').get(0));
 
