@@ -36,7 +36,7 @@ function updateCourses(A) {
 function sortList() {
   var listitems = $('.languages > .language-choice').get();
   listitems.sort(function(a, b) { return $(a).text().localeCompare($(b).text()); });
-  $.each(listitems, function(idx, itm) { $(itm).insertBefore( $('.languages > .divider') ); });
+  $.each(listitems, function(idx, itm) { $(itm).insertBefore('.languages > .divider'); });
 }
 
 $(document).ready(function() {
