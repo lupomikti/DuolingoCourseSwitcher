@@ -63,14 +63,14 @@ $(document).ready(function() {
             
             if(from == A.ui_language) {
                 activeLanguages.attr('data-from', from);
-                activeLanguages.appendTo('.language-choice .'+from);
+                activeLanguages.appendTo('ul.'+from);
                 fromCourse.addClass('active');
             } else {
                 value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
                 $.each(value, function( fromx, to ) {
                     sub = '<li class="language-choice" data-from="'+from+'" data-value="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
 
-                    $(sub).appendTo('.language-choice .'+from);
+                    $(sub).appendTo('ul.'+from);
                 });
             }
         });
