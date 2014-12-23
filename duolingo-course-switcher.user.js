@@ -4,7 +4,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.6.1
+// @version     0.6.2
 // @grant       none
 // ==/UserScript==
 
@@ -63,14 +63,14 @@ $(document).ready(function() {
             
             if(from == A.ui_language) {
                 activeLanguages.attr('data-from', from);
-                activeLanguages.appendTo('.'+from);
+                activeLanguages.appendTo('.language-choice .'+from);
                 fromCourse.addClass('active');
             } else {
                 value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
                 $.each(value, function( fromx, to ) {
                     sub = '<li class="language-choice" data-from="'+from+'" data-value="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
 
-                    $(sub).appendTo('.'+from);
+                    $(sub).appendTo('.language-choice .'+from);
                 });
             }
         });
