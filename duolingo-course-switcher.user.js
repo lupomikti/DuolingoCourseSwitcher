@@ -59,8 +59,7 @@ $(document).on({
         // Get the current list in sorted order to move it one level down
         sortList();
         var activeLanguages = $('.languages > .language-choice');
-        var divider = $('.languages > .divider');
-        
+
         // Change top-level heading
         var header2 = $('.languages > .head > h6').text();
         $('.languages > .head > h6').text(header1[A.ui_language] || 'From');
@@ -69,7 +68,7 @@ $(document).on({
         $.each(courses, function( from, value ) {
             fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languageNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"><li class="head"><h6>'+header2+'</h6></li></ul></li>';
 
-            fromCourse = $(fromCourse).insertBefore(divider);
+            fromCourse = $(fromCourse).insertBefore('.languages > .divider');
             
             if(from == A.ui_language) {
                 // Move the target language list created by Duolingo
