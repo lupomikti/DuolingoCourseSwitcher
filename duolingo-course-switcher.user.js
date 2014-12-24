@@ -39,17 +39,20 @@ function sortList() {
   $.each(listitems, function(idx, itm) { $(itm).insertBefore('.languages > .divider'); });
 }
 
-$(document).ready(function() {
-    sortList();
+$(document).on({
+    mouseenter: function() {
+        if($('ul.languages ul').size() > 0)
+            return;
 
-    var A = duo.user.attributes;
-    var courses = updateCourses(A);
+        var A = duo.user.attributes;
+        var courses = updateCourses(A);
 
-    if(Object.keys(courses).length > 1) {
-        $('#topbar').off('click', '.languages li');
         
+        if(Object.keys(courses).length < 2)
+            return;
         var languageNames = duo.language_names_ui[A.ui_language];
 
+        sortList();
         var activeLanguages = $('.languages > .language-choice');
         var divider = $('.languages > .divider');
         
@@ -62,13 +65,12 @@ $(document).ready(function() {
             fromCourse = $(fromCourse).insertBefore(divider);
             
             if(from == A.ui_language) {
-                activeLanguages.attr('data-from', from);
                 activeLanguages.appendTo('ul.'+from);
                 fromCourse.addClass('active');
             } else {
                 value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
                 $.each(value, function( fromx, to ) {
-                    sub = '<li class="language-choice" data-from="'+from+'" data-value="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
+                    sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
 
                     $(sub).appendTo('ul.'+from);
                 });
@@ -77,11 +79,11 @@ $(document).ready(function() {
         
         sortList();
     }
-});
+}, '.dropdown.topbar-language');
 
 $(document).on('click', '.language-choice', function(){
     var from = $(this).attr('data-from');
-    var to = $(this).attr('data-value');
+    var to = $(this).attr('data-to');
     switchCourse(from, to);
 });
 
