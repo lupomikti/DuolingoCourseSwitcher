@@ -41,33 +41,42 @@ function sortList() {
 
 $(document).on({
     mouseenter: function() {
+        // Do nothing if we've already updated it
         if($('ul.languages ul').size() > 0)
             return;
 
+        // Get and update languages in local storage
         var A = duo.user.attributes;
         var courses = updateCourses(A);
 
-        
+        // Do nothing if there's only one base language
         if(Object.keys(courses).length < 2)
             return;
-        var languageNames = duo.language_names_ui[A.ui_language];
 
+        // Get localized strings
+        var languageNames = duo.language_names_ui[A.ui_language];
+        
+        // Get the current list in sorted order to move it one level down
         sortList();
         var activeLanguages = $('.languages > .language-choice');
         var divider = $('.languages > .divider');
         
+        // Change top-level heading
         var header2 = $('.languages > .head > h6').text();
         $('.languages > .head > h6').text(header1[A.ui_language] || 'From');
 
+        // Create top-level list using source languages
         $.each(courses, function( from, value ) {
             fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languageNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"><li class="head"><h6>'+header2+'</h6></li></ul></li>';
 
             fromCourse = $(fromCourse).insertBefore(divider);
             
             if(from == A.ui_language) {
+                // Move the target language list created by Duolingo
                 activeLanguages.appendTo('ul.'+from);
                 fromCourse.addClass('active');
             } else {
+                // For other base languages, create the target list
                 value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
                 $.each(value, function( fromx, to ) {
                     sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
@@ -77,6 +86,7 @@ $(document).on({
             }
         });
         
+        // Sort the created top-level list
         sortList();
     }
 }, '.dropdown.topbar-language');
