@@ -1,5 +1,7 @@
 # Duolingo Language Course Switcher
 
+This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language.
+
 ### Installing
 
 1. If haven't already, install the appropriate extension for your browser (restarting your browser afterwards if necessary):
@@ -9,6 +11,11 @@
  * Safari: [JavaScript Blocker](http://javascript-blocker.toggleable.com/)
 2. Click [here](https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js) to install the userscript.
 3. Confirm the installation when prompted.
+
+### Usage
+
+* Use Duolingo as you normally would.
+* Language menu shows all languages used since installation of this script.
 
 ### Uninstalling
 
