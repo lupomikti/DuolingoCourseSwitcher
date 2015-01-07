@@ -16,6 +16,7 @@ This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching y
 
 * Use Duolingo as you normally would.
 * Language menu shows all languages used since installation of this script.
+* Effectively, you need to switch the old way *once* for any base language you use.
 
 ### Uninstalling
 
