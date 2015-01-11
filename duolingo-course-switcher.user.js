@@ -72,8 +72,7 @@ $(document).on({
         var languageNames = duo.language_names_ui[A.ui_language];
         var levelLabel = $('.languages .gray').first().text().split(' ')[0]+' ';
         
-        // Get the current list in sorted order to move it one level down
-        sortList();
+        // Get the current list to move it one level down
         var activeLanguages = $('.languages > .language-choice');
 
         // Change top-level heading
@@ -92,7 +91,6 @@ $(document).on({
                 fromCourse.addClass('active');
             } else {
                 // For other base languages, create the target list
-                value.sort(function(a, b) { return languageNames[a['language']].localeCompare(languageNames[b['language']]); });
                 $.each(value, function( fromx, v ) {
                     to = v['language'];
                     sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v['level']+'</span></a></li>';
@@ -101,9 +99,6 @@ $(document).on({
                 });
             }
         });
-        
-        // Sort the created top-level list
-        sortList();
     }
 }, '.dropdown.topbar-language');
 
