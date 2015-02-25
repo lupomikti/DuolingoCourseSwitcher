@@ -2,6 +2,8 @@
 
 This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language.
 
+It uses [local storage](https://en.wikipedia.org/wiki/Web_storage) to track your courses, it may not work as expected if you clear your browser's data.
+
 ### Installing
 
 1. If haven't already, install the appropriate extension for your browser (restarting your browser afterwards if necessary):
