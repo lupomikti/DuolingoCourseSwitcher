@@ -52,7 +52,14 @@ $(document).on({
         // Do nothing if there's only one base language
         if(Object.keys(courses).length < 2)
             return;
-
+        
+        // I'm not sure why this can't be invoked in top level.
+        $('#topbar').on('click', '.extra-choice', function(){
+            var from = $(this).attr('data-from');
+            var to = $(this).attr('data-to');
+            switchCourse(from, to);
+        });
+        
         // Get localized strings
         var languageNames = duo.language_names_ui[A.ui_language];
         
@@ -78,7 +85,7 @@ $(document).on({
                 // For other base languages, create the target list
                 value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
                 $.each(value, function( fromx, to ) {
-                    sub = '<li class="language-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
+                    sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
 
                     $(sub).appendTo('ul.'+from);
                 });
@@ -89,12 +96,6 @@ $(document).on({
         sortList();
     }
 }, '.dropdown.topbar-language');
-
-$(document).on('click', '.language-choice', function(){
-    var from = $(this).attr('data-from');
-    var to = $(this).attr('data-to');
-    switchCourse(from, to);
-});
 
 $(document).on({
     mouseenter: function () {
