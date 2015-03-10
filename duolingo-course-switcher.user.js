@@ -27,9 +27,17 @@ function switchCourse(from, to) {
 }
 
 function updateCourses(A) {
-    var courses = JSON.parse(localStorage.getItem('courses')) || {};
-    courses[A.ui_language] = A.languages.filter(function(lang){ return lang['learning']; }).map(function(lang){ return lang['language']; });
-    localStorage.setItem('courses', JSON.stringify(courses));
+    if(localStorage.getItem('courses') && !localStorage.getItem('dcs_courses')){
+      // upgrade local storage to include language levels
+      var courses = JSON.parse(localStorage.getItem('courses'));
+      for(var src in courses) {
+          courses[src] = courses[src].map(function(l) {return {language: l, level: '?'};});
+      }
+      localStorage.setItem('dcs_courses', JSON.stringify(courses));
+    }
+    var courses = JSON.parse(localStorage.getItem('dcs_courses')) || {};
+    courses[A.ui_language] = A.languages.filter(function(lang){ return lang['learning']; }).map(function(lang){ return _(lang).pick('language', 'level'); });
+    localStorage.setItem('dcs_courses', JSON.stringify(courses));
     return courses;
 }
 
@@ -62,6 +70,7 @@ $(document).on({
         
         // Get localized strings
         var languageNames = duo.language_names_ui[A.ui_language];
+        var levelLabel = $('.languages .gray').first().text().split(' ')[0]+' ';
         
         // Get the current list in sorted order to move it one level down
         sortList();
@@ -83,9 +92,10 @@ $(document).on({
                 fromCourse.addClass('active');
             } else {
                 // For other base languages, create the target list
-                value.sort(function(a, b) { return languageNames[a].localeCompare(languageNames[b]); });
-                $.each(value, function( fromx, to ) {
-                    sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span></a></li>';
+                value.sort(function(a, b) { return languageNames[a['language']].localeCompare(languageNames[b['language']]); });
+                $.each(value, function( fromx, v ) {
+                    to = v['language'];
+                    sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v['level']+'</span></a></li>';
 
                     $(sub).appendTo('ul.'+from);
                 });
