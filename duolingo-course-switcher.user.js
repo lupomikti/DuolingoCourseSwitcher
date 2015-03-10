@@ -4,7 +4,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.6.5
+// @version     0.6.6
 // @grant       none
 // ==/UserScript==
 
@@ -21,7 +21,7 @@ function switchCourse(from, to) {
             learning_language: to
         },
         function (data) {
-            window.location = 'https://www.duolingo.com/';
+            location.reload();
         }
     );
 }
