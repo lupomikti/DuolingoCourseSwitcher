@@ -4,7 +4,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.6.6
+// @version     0.6.7
 // @grant       none
 // ==/UserScript==
 
