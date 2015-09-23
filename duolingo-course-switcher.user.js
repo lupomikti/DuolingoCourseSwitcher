@@ -4,8 +4,9 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.6.8
-// @grant       none
+// @version     0.6.9
+// @grant       GM_getValue
+// @grant       GM_setValue
 // ==/UserScript==
 
 document.head.appendChild($('<style type="text/css">'+
@@ -27,17 +28,13 @@ function switchCourse(from, to) {
 }
 
 function updateCourses(A) {
-    if(localStorage.getItem('courses') && !localStorage.getItem('dcs_courses')){
-      // upgrade local storage to include language levels
-      var courses = JSON.parse(localStorage.getItem('courses'));
-      for(var src in courses) {
-          courses[src] = courses[src].map(function(l) {return {language: l, level: '?'};});
-      }
-      localStorage.setItem('dcs_courses', JSON.stringify(courses));
+    if(localStorage.getItem('dcs_courses') && !GM_getValue('dcs_courses')){
+      // switch to greasemonkey storage
+      GM_setValue('dcs_courses', localStorage.getItem('dcs_courses'));
     }
-    var courses = JSON.parse(localStorage.getItem('dcs_courses')) || {};
+    var courses = JSON.parse(GM_getValue('dcs_courses')) || {};
     courses[A.ui_language] = A.languages.filter(function(lang){ return lang['learning']; }).map(function(lang){ return _(lang).pick('language', 'level'); });
-    localStorage.setItem('dcs_courses', JSON.stringify(courses));
+    GM_setValue('dcs_courses', JSON.stringify(courses));
     return courses;
 }
 
