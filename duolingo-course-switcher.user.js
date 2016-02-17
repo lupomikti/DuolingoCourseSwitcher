@@ -2,8 +2,6 @@
 // @name        DuoLingo Course Switcher
 // @namespace   http://moviemap.me/duoinc
 // @include     https://www.duolingo.com/*
-// @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @version     0.6.9
 // @grant       GM_getValue
 // @grant       GM_setValue
