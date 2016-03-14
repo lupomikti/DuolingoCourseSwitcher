@@ -3,9 +3,13 @@
 // @namespace   http://moviemap.me/duoinc
 // @include     https://www.duolingo.com/*
 // @version     0.6.9
+// @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
 // ==/UserScript==
+
+var duo = unsafeWindow.duo;
+var _   = unsafeWindow._;
 
 document.head.appendChild($('<style type="text/css">'+
     '.choice span:nth-child(2) {text-transform: capitalize;}'+
@@ -31,7 +35,8 @@ function updateCourses(A) {
       GM_setValue('dcs_courses', localStorage.getItem('dcs_courses'));
     }
     var courses = JSON.parse(GM_getValue('dcs_courses')) || {};
-    courses[A.ui_language] = A.languages.filter(function(lang){ return lang['learning']; }).map(function(lang){ return _(lang).pick('language', 'level'); });
+    var learning = [].filter.call(A.languages, function(lang){ return lang['learning']; });
+    courses[A.ui_language] = learning.map(function(lang){ return _(lang).pick('language', 'level'); });
     GM_setValue('dcs_courses', JSON.stringify(courses));
     return courses;
 }
@@ -105,4 +110,3 @@ $(document).on({
         $(this).children('.language-sub-courses').attr('style', 'display: none !important');
     }
 }, '.choice');
-
