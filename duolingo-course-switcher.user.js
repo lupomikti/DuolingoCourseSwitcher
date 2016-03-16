@@ -39,7 +39,7 @@ function updateCourses(A) {
       // switch to greasemonkey storage
       GM_setValue('dcs_courses', localStorage.getItem('dcs_courses'));
     }
-    var courses = JSON.parse(GM_getValue('dcs_courses')) || {};
+    var courses = JSON.parse(GM_getValue('dcs_courses', '{}'));
     var learning = [].filter.call(A.languages, function(lang){ return lang['learning']; });
     courses[A.ui_language] = learning.map(function(lang){ return _(lang).pick('language', 'level'); });
     GM_setValue('dcs_courses', JSON.stringify(courses));
