@@ -4,7 +4,8 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.6.9
+// @icon        http://arkadiuszolek.student.tcs.uj.edu.pl/greasemonkey/duo.png
+// @version     0.6.10
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -15,7 +16,9 @@ var _   = unsafeWindow._;
 
 document.head.appendChild($('<style type="text/css">'+
     '.choice span:nth-child(2) {text-transform: capitalize;}'+
-    '.language-sub-courses {position:absolute; top:-28px !important; left:200px !important; color:#000; background-color: #fff; min-width: 150px; min-height: 50px; display: none !important;}'+
+    '.language-sub-courses {position:absolute; top:-28px !important; color:#000; background-color: #fff; min-width: 150px; min-height: 50px; display: none !important;}'+
+    'html[dir="ltr"] .language-sub-courses {left:200px !important;}'+
+    'html[dir="rtl"] .language-sub-courses {right:200px !important;}'+
     '</style>').get(0));
 
 var header1 = JSON.parse('{"dn": "van", "sv": "fr\\u00e5n", "fr": "de", "hu": "-b\\u00f3l", "eo": "de", "tr": "-den", "es": "desde", "ro": "din", "ja": "\\u304b\\u3089", "vi": "t\\u1eeb", "it": "da", "he": "\\u05de", "el": "\\u03b1\\u03c0\\u03cc", "ru": "\\u0441", "ar": "\\u0645\\u0646", "en": "from", "ga": "\\u00f3", "cs": "od", "pt": "de", "de": "von", "zs": "\\u5f9e", "pl": "z"}');
@@ -112,3 +115,4 @@ $(document).on({
         $(this).children('.language-sub-courses').attr('style', 'display: none !important');
     }
 }, '.choice');
+
