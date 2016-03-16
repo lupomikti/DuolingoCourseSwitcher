@@ -5,7 +5,7 @@
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @icon        http://arkadiuszolek.student.tcs.uj.edu.pl/greasemonkey/duo.png
-// @version     0.6.10
+// @version     0.7.0
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
