@@ -4,6 +4,10 @@ This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching y
 
 There is a [discussion thread dedicated to this script](https://www.duolingo.com/comment/6079283) at Duolingo forums.
 
+A picture is worth a thousand words:
+
+![Screenshot before and after](http://i.imgur.com/BOSvFgR.png)
+
 ### Installing
 
 1. If haven't already, install the appropriate extension for your browser (restarting your browser afterwards if necessary):
@@ -27,13 +31,3 @@ There is a [discussion thread dedicated to this script](https://www.duolingo.com
  * Chromium: [Tampermonkey](http://tampermonkey.net/faq.php?ext=dhdg#Q101)
  * Firefox: [Greasemonkey](http://wiki.greasespot.net/Greasemonkey_Manual:Script_Management)
  * Safari: [JavaScript Blocker](http://javascript-blocker.toggleable.com/)
-
-### Screenshots
-
-Right after installation, Duolingo showing courses from English:
-
-![before](http://i.imgur.com/IiMXFmy.png)
-
-After switching to Spanish interface, the script remembered English courses and updated the language menu.
-
-![after](http://i.imgur.com/gkOOGxW.png)
