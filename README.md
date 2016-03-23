@@ -1,12 +1,10 @@
 # Duolingo Language Course Switcher
 
-This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language.
-
-There is a [discussion thread dedicated to this script](https://www.duolingo.com/comment/6079283) at Duolingo forums.
-
-A picture is worth a thousand words:
+This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language. A picture is worth a thousand words:
 
 ![Screenshot before and after](http://i.imgur.com/BOSvFgR.png)
+
+There is a [discussion thread dedicated to this script](https://www.duolingo.com/comment/6079283) at Duolingo forums.
 
 ### Installing
 
