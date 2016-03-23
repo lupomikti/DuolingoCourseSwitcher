@@ -2,6 +2,8 @@
 
 This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language.
 
+There is a discussion thread dedicated to this script at https://www.duolingo.com/comment/6079283
+
 ### Installing
 
 1. If haven't already, install the appropriate extension for your browser (restarting your browser afterwards if necessary):
