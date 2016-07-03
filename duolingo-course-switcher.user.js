@@ -40,7 +40,7 @@ function updateCourses(A) {
       GM_setValue('dcs_courses', localStorage.getItem('dcs_courses'));
     }
     var courses = JSON.parse(GM_getValue('dcs_courses', '{}'));
-    var learning = [].filter.call(A.languages, function(lang){ return lang['learning']; });
+    var learning = [].filter.call(A.languages, function(lang){ return lang.learning; });
     courses[A.ui_language] = learning.map(function(lang){ return _(lang).pick('language', 'level'); });
     GM_setValue('dcs_courses', JSON.stringify(courses));
     return courses;
@@ -65,18 +65,18 @@ $(document).on({
         // Do nothing if there's only one base language
         if(Object.keys(courses).length < 2)
             return;
-        
+
         // I'm not sure why this can't be invoked in top level.
         $('#topbar').on('click', '.extra-choice', function(){
             var from = $(this).attr('data-from');
             var to = $(this).attr('data-to');
             switchCourse(from, to);
         });
-        
+
         // Get localized strings
         var languageNames = duo.language_names_ui[A.ui_language];
         var levelLabel = $('.languages .gray').first().text().split(' ')[0]+' ';
-        
+
         // Get the current list to move it one level down
         var activeLanguages = $('.languages > .language-choice');
 
@@ -89,7 +89,7 @@ $(document).on({
             fromCourse = '<li class="language-choice choice"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+from+'"></span><span>'+languageNames[from]+'</span></a><ul class="dropdown-menu language-sub-courses '+from+'"><li class="head"><h6>'+header2+'</h6></li></ul></li>';
 
             fromCourse = $(fromCourse).insertBefore('.languages > .divider');
-            
+
             if(from == A.ui_language) {
                 // Move the target language list created by Duolingo
                 activeLanguages.appendTo('ul.'+from);
@@ -97,8 +97,8 @@ $(document).on({
             } else {
                 // For other base languages, create the target list
                 $.each(value, function( fromx, v ) {
-                    to = v['language'];
-                    sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v['level']+'</span></a></li>';
+                    to = v.language;
+                    sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v.level+'</span></a></li>';
 
                     $(sub).appendTo('ul.'+from);
                 });
