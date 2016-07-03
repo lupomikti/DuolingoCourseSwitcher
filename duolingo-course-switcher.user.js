@@ -4,7 +4,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.8.1
+// @version     0.8.2
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -14,7 +14,6 @@ var duo = unsafeWindow.duo;
 var _   = unsafeWindow._;
 
 document.head.appendChild($('<style type="text/css">'+
-    '.choice span:nth-child(2) {text-transform: capitalize;}'+
     '.language-sub-courses {position:absolute; top:-28px !important; color:#000; background-color: #fff; min-width: 150px; min-height: 50px; display: none !important;}'+
     'html[dir="ltr"] .language-sub-courses {left:200px !important;}'+
     'html[dir="rtl"] .language-sub-courses {right:200px !important;}'+
