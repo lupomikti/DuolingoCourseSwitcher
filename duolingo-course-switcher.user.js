@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name        DuoLingo Course Switcher
+// @description Simplifies switching between courses that use different interface language (i.e., base language, the language from which you learn).
 // @namespace   http://moviemap.me/duoinc
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
@@ -8,6 +9,7 @@
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
+// @author      arekolek, mofman, gmelikov, christeefury, guillaumebrunerie
 // ==/UserScript==
 
 var duo = unsafeWindow.duo;
