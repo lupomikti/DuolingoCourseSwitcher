@@ -4,8 +4,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @icon        http://arkadiuszolek.student.tcs.uj.edu.pl/greasemonkey/duo.png
-// @version     0.8.0
+// @version     0.8.1
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -77,8 +76,8 @@ $(document).on({
         var languageNames = duo.language_names_ui[A.ui_language];
         var levelLabel = $('.languages .gray').first().text().split(' ')[0]+' ';
 
-        // Get the current list to move it one level down
-        var activeLanguages = $('.languages > .language-choice');
+        // Remove the current list
+        $('.languages > .language-choice').remove();
 
         // Change top-level heading
         var header2 = $('.languages > .head > h6').text();
@@ -90,19 +89,18 @@ $(document).on({
 
             fromCourse = $(fromCourse).insertBefore('.languages > .divider');
 
-            if(from == A.ui_language) {
-                // Move the target language list created by Duolingo
-                activeLanguages.appendTo('ul.'+from);
-                fromCourse.addClass('active');
-            } else {
-                // For other base languages, create the target list
-                value.sort(function(a, b) { return b.level - a.level; });
-                $.each(value, function( fromx, v ) {
-                    to = v.language;
-                    sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v.level+'</span></a></li>';
+            value.sort(function(a, b) { return b.level - a.level; });
+            $.each(value, function( fromx, v ) {
+                to = v.language;
+                sub = $('<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v.level+'</span></a></li>');
+                sub.appendTo('ul.'+from);
+                if(from == A.ui_language && to == A.learning_language) {
+                    sub.addClass('active');
+                }
+            });
 
-                    $(sub).appendTo('ul.'+from);
-                });
+            if(from == A.ui_language) {
+                fromCourse.addClass('active');
             }
         });
 
