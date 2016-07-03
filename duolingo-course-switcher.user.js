@@ -48,7 +48,7 @@ function updateCourses(A) {
 
 function sortList() {
     var listitems = $('.languages > .language-choice').get();
-    listitems.sort(function(a, b) { return $(a).text().localeCompare($(b).text()); });
+    listitems.sort(function(a, b) { return $(b).find('li.language-choice').size() - $(a).find('li.language-choice').size(); });
     $.each(listitems, function(idx, itm) { $(itm).insertBefore('.languages > .divider'); });
 }
 
@@ -96,6 +96,7 @@ $(document).on({
                 fromCourse.addClass('active');
             } else {
                 // For other base languages, create the target list
+                value.sort(function(a, b) { return b.level - a.level; });
                 $.each(value, function( fromx, v ) {
                     to = v.language;
                     sub = '<li class="language-choice extra-choice" data-from="'+from+'" data-to="'+to+'"><a href="javascript:;"><span class="flag flag-svg-micro flag-'+to+'"></span><span>'+languageNames[to]+'</span> <span class="gray">'+levelLabel+v.level+'</span></a></li>';
@@ -104,6 +105,8 @@ $(document).on({
                 });
             }
         });
+
+        sortList();
     }
 }, '.dropdown.topbar-language');
 
