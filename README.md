@@ -1,4 +1,4 @@
-# Duolingo Language Course Switcher
+# Duolingo Course Language Switcher
 
 This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language. A picture is worth a thousand words:
 
