@@ -16,7 +16,7 @@ This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching y
  * Chrome: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
  * Chromium: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
  * Firefox: [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
- * Safari: [JavaScript Blocker](http://javascript-blocker.toggleable.com/)
+ * Safari: [JavaScript Blocker](http://javascript-blocker.toggleable.com/) (Please note that this script has not been tested on Safari)
 2. Click [here](https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js) to install the userscript.
 3. Confirm the installation when prompted.
 
