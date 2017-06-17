@@ -2,13 +2,13 @@
 
 This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language. A picture is worth a thousand words:
 
-![Screenshot before and after](http://i.imgur.com/BOSvFgR.png)
+![Screenshot before and after](http://i.imgur.com/83BRPpw.png)
 
 There is a [discussion thread dedicated to this script](https://www.duolingo.com/comment/6079283) at Duolingo forums.
 
 ### Installing
 
-1. If haven't already, install the appropriate extension for your browser (restarting your browser afterwards if necessary):
+1. If you haven't already, install the appropriate extension for your browser (restarting your browser afterwards if necessary):
  * Chrome: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
  * Chromium: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
  * Firefox: [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
