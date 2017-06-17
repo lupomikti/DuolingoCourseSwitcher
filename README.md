@@ -1,10 +1,14 @@
-# Duolingo Course Language Switcher
+# Duolingo Language Course Switcher
 
 This userscript for [Duolingo](https://www.duolingo.com/) simplifies switching your UI language. A picture is worth a thousand words:
 
 ![Screenshot before and after](http://i.imgur.com/83BRPpw.png)
 
-There is a [discussion thread dedicated to this script](https://www.duolingo.com/comment/6079283) at Duolingo forums.
+### Discussions
+
+* Version by: [jrikhal](https://www.duolingo.com/comment/22412321)
+* Version by: [arekolek](https://www.duolingo.com/comment/6079283)
+* Original by: [andrewmof](https://www.duolingo.com/comment/3088922)
 
 ### Installing
 
@@ -13,7 +17,7 @@ There is a [discussion thread dedicated to this script](https://www.duolingo.com
  * Chromium: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
  * Firefox: [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
  * Safari: [JavaScript Blocker](http://javascript-blocker.toggleable.com/)
-2. Click [here](https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js) to install the userscript.
+2. Click [here](https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js) to install the userscript.
 3. Confirm the installation when prompted.
 
 ### Usage
