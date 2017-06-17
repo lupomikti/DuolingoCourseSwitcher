@@ -3,13 +3,13 @@
 // @description Simplifies switching between courses that use different interface language (i.e., base language, the language from which you learn).
 // @namespace   http://moviemap.me/duoinc
 // @include     https://www.duolingo.com/*
-// @downloadURL https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @updateURL   https://github.com/arekolek/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     0.8.2
+// @downloadURL https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
+// @updateURL   https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
+// @version     1.0.1
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @author      arekolek, mofman, gmelikov, christeefury, guillaumebrunerie
+// @author      arekolek, mofman, gmelikov, christeefury, guillaumebrunerie, lupomikti
 // ==/UserScript==
 
 var duo = unsafeWindow.duo; // Duo object to get things like courses
