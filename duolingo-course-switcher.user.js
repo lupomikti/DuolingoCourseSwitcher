@@ -16,21 +16,24 @@ var duo = unsafeWindow.duo; // Duo object to get things like courses
 
 // Style info for new sublists
 document.head.appendChild($('<style type="text/css">'+
-    '.language-sub-courses {position:absolute; top: -1px !important; background-color: #fff; min-width: 150px; min-height: 50px; max-height: 500px; overflow-y:auto; display: none !important;}'+
+    '.language-sub-courses {position:absolute; top: -40px !important; background-color: #fff; min-width: 150px; min-height: 50px; max-height: 500px; overflow-y:auto; display: none !important;}'+
+    '.choice {position: relative !important;}' +
     '.choice:hover, .extra-choice:hover {cursor:pointer !important;}' +
     'html[dir="ltr"] .language-sub-courses {left:200px !important;}'+
     'html[dir="rtl"] .language-sub-courses {right:200px !important;}'+
     '</style>').get(0));
 
-// Language strings for th header of the main list
+// Language strings for the header of the main list
 var header1 = JSON.parse('{"nl-NL": "van", "sv": "fr\\u00e5n", "fr": "de", "hu": "-b\\u00f3l", "eo": "de", "tr": "-den", "es": "desde", "ro": "din", "ja": "\\u304b\\u3089", "vi": "t\\u1eeb", "it": "da", "he": "\\u05de", "el": "\\u03b1\\u03c0\\u03cc", "ru": "\\u0441", "ar": "\\u0645\\u0646", "en": "from", "ga": "\\u00f3", "cs": "od", "pt": "de", "de": "von", "zs": "\\u5f9e", "pl": "z"}');
 
 // Each of the flags has a unique code for its class and we'll need this to be able to get the correct one
-// Special thanks and mention goes to jrikhal who had this bit of code in his course switcher replacement for the new site
+// Special thanks and mention goes to jrikhal who had this bit of code (and the code for the parseStr var below)
+//    in his course switcher replacement for the new site
 var flags = JSON.parse('{"ar":"_1ARRD","bn":"_2TXAL","ca":"mc4rg","cs":"_1uPQW","cy":"_1jO8h","da":"_1h0xh","de":"oboa9","el":"_2tQo9","en":"_2cR-E","eo":"pWj0w","es":"u5W-o","fr":"_2KQN3","ga":"_1vhNM","gn":"_24xu4","he":"_PDrK","hi":"OgUIe","hu":"_1S3hi","id":"_107sn","it":"_1PruQ","ja":"_2N-Uj","ko":"_2lkzc","nl-NL":"_1fajz","no-BO":"_200jU","pl":"_3uusw","pt":"pmGwL","ro":"_12U6e","ru":"_1eqxJ","sv":"_2DMfV","sw":"_3T1km","th":"_2oTcA","tl":"_1q_MQ","tlh":"_6mRM","tr":"_1tJJ2","uk":"_1zZsN","vi":"_1KtzC","zh-CN":"_2gNgd","zh-¿?":"xi6jQ","interrogation":"t-XH-"}');
 
 // The following builds an object that contains all the localization strings for language names since Duo no longer stores this info
 //    in an easy to access place like before. This way, more translations can be added manually instead of waiting for Duo to do it.
+// This list is not complete or comprehensive, and any time a string does not exist, the English one is used instead.
 
 var textApostrophe = "'";
 
