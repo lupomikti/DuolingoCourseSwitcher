@@ -5,7 +5,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     1.1.0
+// @version     1.1.1
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
