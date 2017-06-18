@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        DuoLingo Course Switcher
+// @name        Duolingo Course Switcher
 // @description Simplifies switching between courses that use different interface language (i.e., base language, the language from which you learn). Works with both the old site and the new site.
 // @namespace   http://moviemap.me/duoinc
 // @include     https://www.duolingo.com/*
@@ -18,7 +18,7 @@ var _ = unsafeWindow._; // Needed for old site, but not for new site
 // Style info for new sublists dependent on version of site
 if (document.getElementById("app") === null) {
     document.head.appendChild($('<style type="text/css">'+
-        '.language-sub-courses {position:absolute; top: -40px !important; background-color: #fff; min-width: 150px; min-height: 50px; max-height: 500px; overflow-y: auto; display: none !important;}'+
+        '.language-sub-courses {position:absolute; top: -46px !important; background-color: #fff; min-width: 150px; min-height: 50px; max-height: 500px; overflow-y: auto; display: none !important;}'+
         '.choice {position: relative !important;}' +
         '.choice:hover, .extra-choice:hover:not(._1oVFS) {cursor:pointer !important;}' +
         'html[dir="ltr"] .language-sub-courses {left:200px !important;}'+
