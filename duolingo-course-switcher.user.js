@@ -5,7 +5,7 @@
 // @include     https://www.duolingo.com/*
 // @downloadURL https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
 // @updateURL   https://github.com/lupomikti/DuolingoCourseSwitcher/raw/master/duolingo-course-switcher.user.js
-// @version     1.1.1
+// @version     1.1.2
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -21,6 +21,8 @@ if (document.getElementById("app") === null) {
         '.language-sub-courses {position:absolute; top: -46px !important; background-color: #fff; min-width: 150px; min-height: 50px; max-height: 500px; overflow-y: auto; display: none !important;}'+
         '.choice {position: relative !important;}' +
         '.choice:hover, .extra-choice:hover:not(._1oVFS) {cursor:pointer !important;}' +
+        '.extra-choice ._1fA14 {color:#999 !important;}' +
+        '.extra-choice:hover ._1fA14 {color:#fff !important;}' +
         'html[dir="ltr"] .language-sub-courses {left:200px !important;}'+
         'html[dir="rtl"] .language-sub-courses {right:200px !important;}'+
         '</style>').get(0));
